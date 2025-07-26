@@ -5,14 +5,13 @@ import pandas as pd
 df_kraje = pd.read_csv("kraje.csv", encoding="utf-8")
 
 # Wyciągnij listę nazw do selectboxa
-lista_krajow = df_kraje["country_name"].tolist()
-
+lista_krajow = df_kraje["nazwa_kraju"].tolist()
 
 # Wczytaj plik dyscyplin
-df_dyscypliny = pd.read_csv("dyscypliny.csv")
+df_dyscypliny = pd.read_csv("dyscypliny.csv", encoding="utf-8")
 
 # Wyciągnij listę nazw do selectboxa
-lista_dyscyplin = df_dyscypliny["discipline_name"].tolist()
+lista_dyscyplin = df_dyscypliny["nazwa_dyscypliny"].tolist()
 
 st.set_page_config(page_title="AnalizerPL", layout="centered")
 
@@ -28,11 +27,10 @@ if not st.session_state.accepted_risk:
         with col1:
             if st.button("✅ Akceptuję ryzyko"):
                 st.session_state.accepted_risk = True
-                st.rerun() # ← tu jest magia
+                st.rerun()
         with col2:
             if st.button("❌ Wychodzę"):
                 st.stop()
-
 
 # Właściwa aplikacja
 else:
@@ -45,14 +43,11 @@ else:
     druzyna1 = st.text_input("Drużyna 1")
     druzyna2 = st.text_input("Drużyna 2")
 
-    # Przycisk jest zawsze widoczny
     analiza = st.button("🔎 Analizuj")
 
-    # Ale działa dopiero po wpisaniu drużyn
     if analiza:
         if druzyna1.strip() and druzyna2.strip():
             st.success(f"Analiza meczu: **{druzyna1.strip()}** vs **{druzyna2.strip()}** "
                        f"({liga}, {kraj}) – wkrótce zostanie uruchomiona.")
         else:
             st.error("⚠️ Uzupełnij obie drużyny, aby przeprowadzić analizę.")
-
