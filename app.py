@@ -32,7 +32,7 @@ else:
     st.title("AnalizerPL")
 
     dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
-    kraj = st.selectbox("Wybierz kraj", ["Polska"])
+    pd.read_csv("kraje.csv")
     liga = st.selectbox("Wybierz ligę", ["Ekstraklasa", "I liga", "II liga"])
 
     druzyna1 = st.text_input("Drużyna 1")
