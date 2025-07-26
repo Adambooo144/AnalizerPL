@@ -29,7 +29,14 @@ else:
     druzyna1 = st.text_input("Drużyna 1")
     druzyna2 = st.text_input("Drużyna 2")
 
-    if druzyna1.strip() and druzyna2.strip():
-        if st.button("🔎 Analizuj"):
+    # Przycisk jest zawsze widoczny
+    analiza = st.button("🔎 Analizuj")
+
+    # Ale działa dopiero po wpisaniu drużyn
+    if analiza:
+        if druzyna1.strip() and druzyna2.strip():
             st.success(f"Analiza meczu: **{druzyna1.strip()}** vs **{druzyna2.strip()}** "
                        f"({liga}, {kraj}) – wkrótce zostanie uruchomiona.")
+        else:
+            st.error("⚠️ Uzupełnij obie drużyny, aby przeprowadzić analizę.")
+
