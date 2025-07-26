@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Wczytaj plik dyscyplin
-df_dyscypliny = pd.read_csv("data/dyscypliny.csv")
+df_dyscypliny = pd.read_csv("dyscypliny.csv")
 
 # Wyciągnij listę nazw do selectboxa
 lista_dyscyplin = df_dyscypliny["discipline_name"].tolist()
