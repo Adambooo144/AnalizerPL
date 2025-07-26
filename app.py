@@ -37,20 +37,23 @@ else:
     st.title("AnalizerPL")
 
     dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
-    kraj = st.selectbox("Wybierz kraj", lista_krajow)
-    # Liga dostępna tylko, jeśli wybrano Polska
+# Wybór kraju
+kraj = st.selectbox("Wybierz kraj", lista_krajow)
+
+# Wybór ligi zależny od kraju
+lista_lig = []
+
 if kraj == "Polska":
     lista_lig = ["Ekstraklasa", "I liga", "II liga"]
 elif kraj == "Hiszpania":
     lista_lig = ["La Liga"]
-else:
-    lista_lig = []
 
 if lista_lig:
     liga = st.selectbox("Wybierz ligę", lista_lig)
 else:
     st.info("Brak dostępnych lig dla wybranego kraju.")
-    liga = None  # opcjonalnie
+    liga = None
+
 
 
     druzyna1 = st.text_input("Drużyna 1")
