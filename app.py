@@ -3,6 +3,14 @@ import pandas as pd
 
 # Wczytaj plik dyscyplin
 df_dyscypliny = pd.read_csv("dyscypliny.csv")
+lista_dyscyplin = df_dyscypliny["dyscyplina"].tolist()
+
+# Wczytaj plik krajów
+df_kraje = pd.read_csv("kraje.csv")
+lista_krajow = df_kraje["kraj"].tolist()
+
+# Wczytaj plik dyscyplin
+df_dyscypliny = pd.read_csv("dyscypliny.csv")
 
 # Wyciągnij listę nazw do selectboxa
 lista_dyscyplin = df_dyscypliny["discipline_name"].tolist()
@@ -32,7 +40,7 @@ else:
     st.title("AnalizerPL")
 
     dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
-    kraj = st.selectbox("Wybierz kraj", df_kraje["kraj"])
+    kraj = st.selectbox("Wybierz kraj", lista_krajow)
     liga = st.selectbox("Wybierz ligę", ["Ekstraklasa", "I liga", "II liga"])
 
     druzyna1 = st.text_input("Drużyna 1")
