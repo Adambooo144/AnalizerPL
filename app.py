@@ -31,7 +31,7 @@ if not st.session_state.accepted_risk:
 else:
     st.title("AnalizerPL")
 
-    dyscyplina = st.selectbox("Wybierz dyscyplinę", ["Piłka nożna"])
+    dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
     kraj = st.selectbox("Wybierz kraj", ["Polska"])
     liga = st.selectbox("Wybierz ligę", ["Ekstraklasa", "I liga", "II liga"])
 
