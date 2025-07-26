@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-# Wczytaj plik krajów
-df_kraje = pd.read_csv("kraje.csv")
+df_kraje = pd.read_csv("kraje.csv", encoding="utf-8")
+lista_krajow = df_kraje["country_name"].tolist()
+
 
 # Wczytaj plik dyscyplin
 df_dyscypliny = pd.read_csv("dyscypliny.csv")
