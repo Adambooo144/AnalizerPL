@@ -37,24 +37,20 @@ else:
     st.title("AnalizerPL")
 
     dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
-    # Wybór kraju
     kraj = st.selectbox("Wybierz kraj", lista_krajow)
 
-    # Wybór ligi zależny od kraju
+    # Domyślnie pusta lista
     lista_lig = []
 
+    # Jeśli wybrano Polskę, pokaż dostępne ligi
     if kraj == "Polska":
         lista_lig = ["Ekstraklasa", "I liga", "II liga"]
-    elif kraj == "Hiszpania":
-        lista_lig = ["La Liga"]
 
-if lista_lig:
-    liga = st.selectbox("Wybierz ligę", lista_lig)
-else:
-    st.info("Brak dostępnych lig dla wybranego kraju.")
-    liga = None
-
-
+    # Jeśli są dostępne ligi, pokaż selectbox
+    if lista_lig:
+        liga = st.selectbox("Wybierz ligę", lista_lig)
+    else:
+        liga = None  # żeby dalej nie wywalało błędu
 
     druzyna1 = st.text_input("Drużyna 1")
     druzyna2 = st.text_input("Drużyna 2")
@@ -64,6 +60,6 @@ else:
     if analiza:
         if druzyna1.strip() and druzyna2.strip():
             st.success(f"Analiza meczu: **{druzyna1.strip()}** vs **{druzyna2.strip()}** "
-                       f"({liga}, {kraj}) – wkrótce zostanie uruchomiona.")
+                       f"({liga if liga else 'Brak ligi'}, {kraj}) – wkrótce zostanie uruchomiona.")
         else:
             st.error("⚠️ Uzupełnij obie drużyny, aby przeprowadzić analizę.")
