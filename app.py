@@ -14,7 +14,7 @@ if not st.session_state.accepted_risk:
         with col1:
             if st.button("✅ Akceptuję ryzyko"):
                 st.session_state.accepted_risk = True
-                st.experimental_rerun()  # ← tu jest magia
+                st.rerun() # ← tu jest magia
         with col2:
             if st.button("❌ Wychodzę"):
                 st.stop()
