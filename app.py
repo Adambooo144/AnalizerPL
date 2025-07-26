@@ -37,16 +37,16 @@ else:
     st.title("AnalizerPL")
 
     dyscyplina = st.selectbox("Wybierz dyscyplinę", lista_dyscyplin)
-# Wybór kraju
-kraj = st.selectbox("Wybierz kraj", lista_krajow)
+    # Wybór kraju
+    kraj = st.selectbox("Wybierz kraj", lista_krajow)
 
-# Wybór ligi zależny od kraju
-lista_lig = []
+    # Wybór ligi zależny od kraju
+    lista_lig = []
 
-if kraj == "Polska":
-    lista_lig = ["Ekstraklasa", "I liga", "II liga"]
-elif kraj == "Hiszpania":
-    lista_lig = ["La Liga"]
+    if kraj == "Polska":
+        lista_lig = ["Ekstraklasa", "I liga", "II liga"]
+    elif kraj == "Hiszpania":
+        lista_lig = ["La Liga"]
 
 if lista_lig:
     liga = st.selectbox("Wybierz ligę", lista_lig)
